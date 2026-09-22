@@ -65,29 +65,48 @@ function myfunction() {
 //-----------------------------------------------------
 
 //Searching matching employees
-const searchbutton=document.getElementById("searchEmployee")
+const searchbutton = document.getElementById("searchEmployee");
 
-searchbutton.addEventListener("click",searchFunc);
+searchbutton.addEventListener("click", searchFunc);
 
-function searchFunc(){
-  const searchedText=document.getElementById("findEmployee").value;
-  let flag=false
-  let searchOutput=""
-  for(let i=0;i<employees.length;i++){
-    if(employees[i].name.toLowerCase().includes(searchedText.toLowerCase()))
-    {
-      searchOutput+=
-      `<h3>${employees[i].name}</h3>
+function searchFunc() {
+  const searchedText = document.getElementById("findEmployee").value;
+  let flag = false;
+  let searchOutput = "";
+  for (let i = 0; i < employees.length; i++) {
+    if (employees[i].name.toLowerCase().includes(searchedText.toLowerCase())) {
+      searchOutput += `<h3>${employees[i].name}</h3>
        <p> ${employees[i].department}</p>
        <p> ${employees[i].salary}</p>
       `;
-      flag=true
+      flag = true;
     }
   }
   //if flag is false
-  if(!flag){
-    alert("No Employee Data Found!")
+  if (!flag) {
+    alert("No Employee Data Found!");
   }
   //this line will show searchOutput on the place of id->employeeList
-  document.getElementById("employeeList").innerHTML=searchOutput
+  document.getElementById("employeeList").innerHTML = searchOutput;
+}
+
+//Searching employees using dropdown
+let searchDepartment=document.getElementById("select_department")
+searchDepartment.addEventListener("change",filterDept);
+
+function filterDept(){
+  let searchedOption=searchDepartment.value
+  // console.log(deptOption)
+  let filteredResult=employees.filter(employees=>employees.department.toLowerCase().includes(searchedOption.toLowerCase()))
+  console.log(filteredResult)
+  // console.log(filteredResult)
+  let output=""
+  for(let i=0;i<filteredResult.length;i++){
+    output+=` <h3>${filteredResult[i].name}</h3>
+              <p>${filteredResult[i].department}</p>
+              <p>${filteredResult[i].salary}</p>`
+  }
+  console.log(output)
+  
+  document.getElementById("employeeList").innerHTML=output
 }
