@@ -91,22 +91,28 @@ function searchFunc() {
 }
 
 //Searching employees using dropdown
-let searchDepartment=document.getElementById("select_department")
-searchDepartment.addEventListener("change",filterDept);
+let searchDepartment = document.getElementById("select_department");
+searchDepartment.addEventListener("change", filterDept);
 
-function filterDept(){
-  let searchedOption=searchDepartment.value
-  // console.log(deptOption)
-  let filteredResult=employees.filter(employees=>employees.department.toLowerCase().includes(searchedOption.toLowerCase()))
-  console.log(filteredResult)
-  // console.log(filteredResult)
-  let output=""
-  for(let i=0;i<filteredResult.length;i++){
-    output+=` <h3>${filteredResult[i].name}</h3>
+function filterDept() {
+  //it gives value of option(from dropdown)
+  let searchedOption = searchDepartment.value;
+  if (searchedOption.includes("default")) {
+    document.getElementById("employeeList").innerHTML = showEmployee();
+  } else {
+    let filteredResult = employees.filter((employees) =>
+      employees.department.toLowerCase().includes(searchedOption.toLowerCase()),
+    );
+    console.log(filteredResult);
+    // console.log(filteredResult)
+    let output = "";
+    for (let i = 0; i < filteredResult.length; i++) {
+      output += ` <h3>${filteredResult[i].name}</h3>
               <p>${filteredResult[i].department}</p>
-              <p>${filteredResult[i].salary}</p>`
+              <p>${filteredResult[i].salary}</p>`;
+    }
+    console.log(output);
+
+    document.getElementById("employeeList").innerHTML = output;
   }
-  console.log(output)
-  
-  document.getElementById("employeeList").innerHTML=output
 }
