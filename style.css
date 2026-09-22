@@ -1,0 +1,32 @@
+body{
+    background-color: antiquewhite;
+}
+#heading{
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+.department{
+    margin: 5px;
+}
+.show{
+    border:2px solid black;
+    border-radius: 3px;
+    height:500px;
+    width:800px;
+    padding: 5px;
+    margin: 8px;
+}
+.employeeList{
+    height: 800px;
+    width: 600px;
+    border:3px solid black;
+    border-radius: 3px;
+}
+.employeeList1{
+    border: 2px solid black;
+    margin: 8px;
+    padding: 10px;
+    width: 800px;
+}
