@@ -28,7 +28,7 @@ let employees = [
 ];
 //showing output of employee detail by loop
 
-//i changed this function from only employee display to general display function, you can call it to display
+//changed this function from only employee display to general display function, you can call it to display your array
 function showEmployee(array) {
   let output = "";
   for (let i = 0; i < array.length; i++) {
