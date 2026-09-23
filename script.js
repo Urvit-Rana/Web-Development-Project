@@ -104,7 +104,7 @@ function filterDept() {
     document.getElementById("employeeList").innerHTML = showEmployee(employees);
   } else {
     let filteredResult = employees.filter((employees) =>
-      employees.department.toLowerCase().includes(searchedOption.toLowerCase())
+      employees.department.toLowerCase().includes(searchedOption.toLowerCase()),
     );
     // console.log(filteredResult);
 
@@ -116,7 +116,33 @@ function filterDept() {
     //           <p>${filteredResult[i].salary}</p>`;
     // }
     // console.log(output);
-//updated from repeating code to using generlized function
-    document.getElementById("employeeList").innerHTML = showEmployee(filteredResult);
+    //updated from repeating code to using generlized function
+    document.getElementById("employeeList").innerHTML =
+      showEmployee(filteredResult);
   }
 }
+
+//sorting employee by their salary
+let sortoption = document.getElementById("sortBySalary");
+sortoption.addEventListener("change", sortSalary);
+
+function sortSalary() {
+  //accessed value of dropdown
+  let selectedsort = document.getElementById("sortBySalary").value;
+  //copied employee array so we can manipulate copied array instead of original
+  let unsortedArray = employees;
+
+  if (selectedsort.includes("increasing")) {
+    unsortedArray.sort((a, b) => a.salary - b.salary);
+    document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
+  } 
+  else if ((selectedsort.includes("decreasing"))) {
+    unsortedArray.sort((a, b) => b.salary - a.salary);
+    document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
+  }
+  else if(selectedsort.includes("default")){
+    console.log(employees)
+    document.getElementById("employeeList").innerHTML =showEmployee()
+  }
+}
+console.log(employees)
