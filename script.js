@@ -28,21 +28,23 @@ let employees = [
 ];
 //showing output of employee detail by loop
 
-function showEmployee() {
+//i changed this function from only employee display to general display function, you can call it to display
+function showEmployee(array) {
   let output = "";
-  for (let i = 0; i < employees.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     output += `
     <div>
         
-        <h3>Name:${employees[i].name}</h3>
-        <p>Deprtment:${employees[i].department}</p>
-        <p>Salary:${employees[i].salary}</p>
+        <h3>Name:${array[i].name}</h3>
+        <p>Deprtment:${array[i].department}</p>
+        <p>Salary:${array[i].salary}</p>
 
     </div>`;
   }
   return output;
 }
-document.getElementById("employeeList").innerHTML = showEmployee();
+
+document.getElementById("employeeList").innerHTML = showEmployee(employees);
 
 //practicing event listner by click event
 //---------------------------------------------------
@@ -104,16 +106,17 @@ function filterDept() {
     let filteredResult = employees.filter((employees) =>
       employees.department.toLowerCase().includes(searchedOption.toLowerCase())
     );
-    console.log(filteredResult);
-    // console.log(filteredResult)
-    let output = "";
-    for (let i = 0; i < filteredResult.length; i++) {
-      output += ` <h3>${filteredResult[i].name}</h3>
-              <p>${filteredResult[i].department}</p>
-              <p>${filteredResult[i].salary}</p>`;
-    }
-    console.log(output);
+    // console.log(filteredResult);
 
-    document.getElementById("employeeList").innerHTML = output;
+    // console.log(filteredResult)
+    // let output = "";
+    // for (let i = 0; i < filteredResult.length; i++) {
+    //   output += ` <h3>${filteredResult[i].name}</h3>
+    //           <p>${filteredResult[i].department}</p>
+    //           <p>${filteredResult[i].salary}</p>`;
+    // }
+    // console.log(output);
+//updated from repeating code to using generlized function
+    document.getElementById("employeeList").innerHTML = showEmployee(filteredResult);
   }
 }
