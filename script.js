@@ -27,8 +27,9 @@ let employees = [
   },
 ];
 //showing output of employee detail by loop
-let output = "";
+
 function showEmployee() {
+  let output = "";
   for (let i = 0; i < employees.length; i++) {
     output += `
     <div>
@@ -101,7 +102,7 @@ function filterDept() {
     document.getElementById("employeeList").innerHTML = showEmployee();
   } else {
     let filteredResult = employees.filter((employees) =>
-      employees.department.toLowerCase().includes(searchedOption.toLowerCase()),
+      employees.department.toLowerCase().includes(searchedOption.toLowerCase())
     );
     console.log(filteredResult);
     // console.log(filteredResult)
