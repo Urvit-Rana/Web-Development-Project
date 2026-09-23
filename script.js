@@ -101,7 +101,7 @@ function filterDept() {
   //it gives value of option(from dropdown)
   let searchedOption = searchDepartment.value;
   if (searchedOption.includes("default")) {
-    document.getElementById("employeeList").innerHTML = showEmployee();
+    document.getElementById("employeeList").innerHTML = showEmployee(employees);
   } else {
     let filteredResult = employees.filter((employees) =>
       employees.department.toLowerCase().includes(searchedOption.toLowerCase())
