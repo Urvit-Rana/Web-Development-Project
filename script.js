@@ -146,3 +146,18 @@ function sortSalary() {
   }
 }
 console.log(employees)
+
+//add employee
+
+
+  let input_name=document.getElementById("nameInput").value
+  let input_dept=document.getElementById("deptInput").value
+  let input_salary=document.getElementById("salaryInput").value
+  let add_emp_btn=document.getElementById("employeeInputbtn")
+
+  add_emp_btn.addEventListener("click",addEmployee)
+
+  function addEmployee(){
+    //I have three variables.Now i have to combine it to one object
+
+  }
