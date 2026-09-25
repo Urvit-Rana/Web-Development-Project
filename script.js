@@ -132,32 +132,45 @@ function sortSalary() {
   //copied employee array so we can manipulate copied array instead of original
   let unsortedArray = [...employees];
 
-  if (selectedsort ==="increasing") {
+  if (selectedsort === "increasing") {
     unsortedArray.sort((a, b) => a.salary - b.salary);
-    document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
-  } 
-  else if (selectedsort ==="decreasing") {
+    document.getElementById("employeeList").innerHTML =
+      showEmployee(unsortedArray);
+  } else if (selectedsort === "decreasing") {
     unsortedArray.sort((a, b) => b.salary - a.salary);
-    document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
-  }
-  else if(selectedsort ==="default"){
-    console.log(employees)
-    document.getElementById("employeeList").innerHTML =showEmployee(employees)
+    document.getElementById("employeeList").innerHTML =
+      showEmployee(unsortedArray);
+  } else if (selectedsort === "default") {
+    console.log(employees);
+    document.getElementById("employeeList").innerHTML = showEmployee(employees);
   }
 }
-console.log(employees)
 
 //add employee
+let add_emp_btn = document.getElementById("employeeInputbtn");
 
+add_emp_btn.addEventListener("click", addEmployee);
 
-  let input_name=document.getElementById("nameInput").value
-  let input_dept=document.getElementById("deptInput").value
-  let input_salary=document.getElementById("salaryInput").value
-  let add_emp_btn=document.getElementById("employeeInputbtn")
+function addEmployee() {
+  //I have three variables.Now i have to combine it to one object
+  let input_name = document.getElementById("nameInput").value;
+  let input_dept = document.getElementById("deptInput").value;
+  let input_salary = document.getElementById("salaryInput").value;
 
-  add_emp_btn.addEventListener("click",addEmployee)
-
-  function addEmployee(){
-    //I have three variables.Now i have to combine it to one object
-
+  if(input_name==="" || input_dept===""||input_salary<=0 )
+  {
+    alert("Please Enter Valid Details")
   }
+  else{
+  //creating object for our input value so that three values combination will create object
+  let new_emp_object = {};
+  //adding our input value in to object
+  new_emp_object.name = input_name;
+  new_emp_object.department = input_dept;
+  new_emp_object.salary = input_salary;
+  //pushing our object into our main employee array
+  employees.push(new_emp_object)
+  document.getElementById("employeeList").innerHTML=showEmployee(employees);
+  //pending task:clearing inputs after adding employee, connecting with local storage
+  }
+}
