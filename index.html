@@ -1,46 +1,47 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <title>Employee Management System</title>
-    </head>
-    <body>
-        <h1 id="heading">Employee Management System</h1>
-        <div class="container">
-            <div class="searchbar">
-                <!-- button for searching employee -->
-                <label for="findEmployee">Search Employee:</label>
-                <input type="text" id="findEmployee">
-                <button id="searchEmployee">Search</button>
-                <br>
-                <!-- <p id="demo">The Time is?</p> -->  
-            </div>
-            <div class="department">
-                <br>
-                <label>Search Employee By Department:</label>
-                <select id="select_department">
-                    <option value="default">-Select Department-</option>
-                    <option value="frontend">Frontend Developer</option>
-                    <option value="backend">Backned Developer</option>
-                    <option value="fullstack">Full Stack Developer</option>
-                    <option value="devops">Devops</option>
-                    <option value="cloud">Cloud Engineer</option>
-                </select>
-            </div>
-            <div class="sortbysalary">
-                <label>Sort By Salary</label>
-                <select id="sortBySalary">
-                    <option id="default">-Sort By Salary-</option>
-                    <option id="increasing1" value="increasing">low to high</option>
-                    <option id="decreasing2" value="decreasing">high to low</option>
-                </select>
-            </div>
-            <div class="employeeList1" id="employeeList">
-                <h2>Show Employee:</h2>
-            </div>
-            
-            <button id="btn2">DEMO </button>
-            <p id="demo para">Click The Button</p>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Employee Management System</title>
+  </head>
+  <body>
+    <h1 id="heading">Employee Management System</h1>
+    <div class="container">
+      <div class="searchbar">
+        <!-- button for searching employee -->
+        <label for="findEmployee">Search Employee:</label>
+        <input type="text" id="findEmployee" />
+        <button id="searchEmployee">Search</button>
+        <br />
+        <!-- <p id="demo">The Time is?</p> -->
+      </div>
+      <div class="department">
+        <br />
+        <label>Search Employee By Department:</label>
+        <select id="select_department">
+          <option value="default">-Select Department-</option>
+          <option value="frontend">Frontend Developer</option>
+          <option value="backend">Backned Developer</option>
+          <option value="fullstack">Full Stack Developer</option>
+          <option value="devops">Devops</option>
+          <option value="cloud">Cloud Engineer</option>
+        </select>
+        <div id="div_of_sortBySalary">
+          <label>Sort By Salary</label>
+          <select id="sortBySalary">
+            <option id="default">-Sort By Salary-</option>
+            <option id="increasing1" value="increasing">low to high</option>
+            <option id="decreasing2" value="decreasing">high to low</option>
+          </select>
         </div>
-        <script src="script.js"></script>
-    </body>
+      </div>
+
+      <div class="employeeList1" id="employeeList">
+        <h2>Show Employee:</h2>
+      </div>
+
+      <button id="btn2">DEMO</button>
+      <p id="demo para">Click The Button</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -130,19 +130,19 @@ function sortSalary() {
   //accessed value of dropdown
   let selectedsort = document.getElementById("sortBySalary").value;
   //copied employee array so we can manipulate copied array instead of original
-  let unsortedArray = employees;
+  let unsortedArray = [...employees];
 
-  if (selectedsort.includes("increasing")) {
+  if (selectedsort ==="increasing") {
     unsortedArray.sort((a, b) => a.salary - b.salary);
     document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
   } 
-  else if ((selectedsort.includes("decreasing"))) {
+  else if (selectedsort ==="decreasing") {
     unsortedArray.sort((a, b) => b.salary - a.salary);
     document.getElementById("employeeList").innerHTML = showEmployee(unsortedArray);
   }
-  else if(selectedsort.includes("default")){
+  else if(selectedsort ==="default"){
     console.log(employees)
-    document.getElementById("employeeList").innerHTML =showEmployee()
+    document.getElementById("employeeList").innerHTML =showEmployee(employees)
   }
 }
 console.log(employees)
