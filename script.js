@@ -153,6 +153,7 @@ add_emp_btn.addEventListener("click", addEmployee);
 
 function addEmployee() {
   //I have three variables.Now i have to combine it to one object
+  //.value only takes string input 
   let input_name = document.getElementById("nameInput").value;
   let input_dept = document.getElementById("deptInput").value;
   let input_salary = document.getElementById("salaryInput").value;
@@ -171,6 +172,10 @@ function addEmployee() {
   //pushing our object into our main employee array
   employees.push(new_emp_object)
   document.getElementById("employeeList").innerHTML=showEmployee(employees);
-  //pending task:clearing inputs after adding employee, connecting with local storage
+  
+  //clearing input box value after succesfull input
+  document.getElementById("nameInput").value=""  
+  document.getElementById("deptInput").value=""  
+  document.getElementById("salaryInput").value=""  
   }
 }
