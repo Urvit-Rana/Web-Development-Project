@@ -1,5 +1,5 @@
-//array of employees object
-let employees = [
+//array of employees object(default employees)
+let default_employees = [
   {
     name: "Urvit Rana",
     department: "Backend Developer",
@@ -26,6 +26,18 @@ let employees = [
     salary: 65000,
   },
 ];
+//employees added to localstorage
+let storedEmployees=localStorage.getItem("employees")
+let employees;
+
+//if data stored in localStorage then store it into employee
+if(storedEmployees){
+  employees=JSON.parse(storedEmployees)//string to object
+}
+//if localstorage is empty than show default employee
+else{
+  employees=default_employees
+}
 //showing output of employee detail by loop
 
 //changed this function from only employee display to general display function, you can call it to display your array
@@ -153,29 +165,32 @@ add_emp_btn.addEventListener("click", addEmployee);
 
 function addEmployee() {
   //I have three variables.Now i have to combine it to one object
-  //.value only takes string input 
+  //.value only takes string input
   let input_name = document.getElementById("nameInput").value;
   let input_dept = document.getElementById("deptInput").value;
   let input_salary = document.getElementById("salaryInput").value;
 
-  if(input_name==="" || input_dept===""||input_salary<=0 )
-  {
-    alert("Please Enter Valid Details")
-  }
-  else{
-  //creating object for our input value so that three values combination will create object
-  let new_emp_object = {};
-  //adding our input value in to object
-  new_emp_object.name = input_name;
-  new_emp_object.department = input_dept;
-  new_emp_object.salary = input_salary;
-  //pushing our object into our main employee array
-  employees.push(new_emp_object)
-  document.getElementById("employeeList").innerHTML=showEmployee(employees);
-  
-  //clearing input box value after succesfull input
-  document.getElementById("nameInput").value=""  
-  document.getElementById("deptInput").value=""  
-  document.getElementById("salaryInput").value=""  
+  if (input_name === "" || input_dept === "" || input_salary <= 0) {
+    alert("Please Enter Valid Details");
+  } else {
+    //creating object for our input value so that three values combination will create object
+    let new_emp_object = {};
+    //adding our input value in to object
+    new_emp_object.name = input_name;
+    new_emp_object.department = input_dept;
+    new_emp_object.salary = input_salary;
+    //pushing our object into our main employee array
+    employees.push(new_emp_object);
+
+    //adding employees to localstorage
+    localStorage.setItem("employees",
+      JSON.stringify(employees)
+    )
+   //displaying added employee
+    document.getElementById("employeeList").innerHTML = showEmployee(employees);
+    //clearing input box value after succesfull input
+    document.getElementById("nameInput").value = "";
+    document.getElementById("deptInput").value = "";
+    document.getElementById("salaryInput").value = "";
   }
 }
